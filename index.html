@@ -146,32 +146,36 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             .game-title {
-                font-size: 20px;
+                font-size: 18px;
                 padding: 8px;
+                border-radius: 0 0 20px 20px;
             }
             
             .timer-box {
-                width: 70px;
-                height: 70px;
-                font-size: 28px;
-                top: 70px;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                top: 60px;
+                border-width: 3px;
             }
             
             .players-wrap {
                 flex-direction: row;
-                height: calc(100vh - 180px);
-                margin-top: 30px;
+                height: calc(100vh - 160px);
+                margin-top: 20px;
             }
             
             .player-side {
                 width: 50%;
                 height: 100%;
-                padding-top: 15px;
+                padding-top: 10px;
             }
             
             .divider {
-                top: 150px;
-                height: calc(100% - 150px - 10px);
+                top: 130px;
+                height: calc(100% - 130px - 10px);
+                width: 8px;
+                border-radius: 4px;
             }
         }
 
@@ -225,31 +229,36 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             .player-label {
-                font-size: 16px;
-                margin-bottom: 8px;
+                font-size: 14px;
+                margin-bottom: 6px;
             }
             
             .score-box {
-                width: 80px;
-                height: 80px;
-                font-size: 36px;
-                margin-bottom: 15px;
+                width: 70px;
+                height: 70px;
+                font-size: 32px;
+                margin-bottom: 12px;
+                border-width: 3px;
             }
             
             .target-area {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 15px;
+                width: 90px;
+                height: 90px;
+                margin-bottom: 12px;
+                border-width: 2px;
+                border-radius: 20px;
             }
             
             .fall-area {
-                height: 60%;
-                min-height: 150px;
+                height: 65%;
+                min-height: 130px;
+                border-radius: 20px;
             }
             
             .shape-piece {
-                width: 100px;
-                height: 100px;
+                width: 90px;
+                height: 90px;
+                transform: scale(0.5);
             }
         }
 
@@ -582,13 +591,63 @@
             }
             
             .btn {
-                padding: 12px 30px;
-                font-size: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                gap: 5px;
             }
             
             .control-bar {
+                gap: 10px;
+                padding: 8px 0;
+                flex-wrap: wrap;
+            }
+            
+            .shape-editor {
+                width: 95vw;
+                max-width: 400px;
+            }
+            
+            .shape-items {
+                gap: 8px;
+            }
+            
+            .shape-preview {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .shape-preview.triangle {
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 35px solid #FFD166;
+            }
+            
+            .canvas {
+                height: 200px;
+            }
+            
+            .custom-shape-preview {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .modal {
+                padding: 30px;
+                border-radius: 30px;
+            }
+            
+            .modal-title {
+                font-size: 24px;
+            }
+            
+            .difficulty-btns {
                 gap: 15px;
-                padding: 10px 0;
+                flex-wrap: wrap;
+            }
+            
+            .diff-btn {
+                padding: 16px 30px;
+                font-size: 20px;
             }
         }
 
@@ -979,9 +1038,9 @@
 <body>
     <!-- 背景音乐 -->
     <audio id="backgroundMusic" loop>
-        <source src="https://assets.mixkit.co/active_storage/sfx/2028/2028-preview.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2734/2734-preview.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素。
-    </audio>
+     </audio>
     
     <!-- 音乐控制按钮 -->
     <div class="music-control" id="musicControl" onclick="toggleMusic()">🎵</div>

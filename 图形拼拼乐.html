@@ -248,6 +248,291 @@
             display: none;
         }
 
+        /* 自定义图形窗口 */
+        .shape-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .shape-inputs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .shape-inputs input[type="text"],
+        .shape-inputs select {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #4ECDC4;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .shape-inputs input[type="color"] {
+            width: 50px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .add-shape-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: linear-gradient(90deg, #4ECDC4, #45B7AA);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-shape-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .shape-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 2px solid #4ECDC4;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .shape-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #f0f9ff;
+            border-radius: 8px;
+        }
+
+        .shape-preview {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .shape-info {
+            flex: 1;
+        }
+
+        .shape-name {
+            font-weight: bold;
+        }
+
+        .shape-type {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .remove-shape {
+            padding: 5px 10px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .shape-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* 图形编辑器 */
+        .shape-editor {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 800px;
+            max-width: 90vw;
+        }
+
+        .shape-library,
+        .canvas-area,
+        .custom-shapes {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .shape-library h3,
+        .canvas-area h3,
+        .custom-shapes h3 {
+            margin-bottom: 15px;
+            color: #4ECDC4;
+            text-align: center;
+        }
+
+        .shape-items {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .shape-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: move;
+            transition: transform 0.2s;
+        }
+
+        .shape-item:hover {
+            transform: scale(1.1);
+        }
+
+        .shape-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+        }
+
+        .shape-preview.circle {
+            background: #FF6B6B;
+            border-radius: 50%;
+        }
+
+        .shape-preview.square {
+            background: #4ECDC4;
+        }
+
+        .shape-preview.triangle {
+            background: transparent;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 52px solid #FFD166;
+        }
+
+        .shape-preview.star {
+            background: #6A0572;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .canvas {
+            width: 100%;
+            height: 300px;
+            border: 2px dashed #4ECDC4;
+            border-radius: 10px;
+            position: relative;
+            background: #f9f9f9;
+            margin-bottom: 15px;
+        }
+
+        .canvas .draggable-element {
+            position: absolute;
+            cursor: move;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .canvas-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .custom-shape-list {
+            max-height: 200px;
+            overflow-y: auto;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .custom-shape-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .custom-shape-item:hover {
+            transform: scale(1.1);
+        }
+
+        .custom-shape-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-shape-name {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .remove-custom-shape {
+            margin-top: 5px;
+            padding: 3px 8px;
+            font-size: 12px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .remove-custom-shape:hover {
+            background: #ff5252;
+        }
+
+        /* 自定义组合图形样式 */
+        .custom-shape-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        /* 可拖动元素样式 */
+        .draggable-element {
+            position: absolute;
+            cursor: move;
+            z-index: 10;
+        }
+
+        /* 修复基础图形在目标区域的显示 */
+        .target-area .circle,
+        .target-area .square,
+        .target-area .triangle,
+        .target-area .star {
+            width: 150px;
+            height: 150px;
+        }
+
+        .target-area .triangle {
+            background: transparent;
+            width: 0;
+            height: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 130px solid #ff6b6b;
+        }
+
+        .target-area .star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
         /* 结束弹窗 */
         .end-modal {
             position: fixed;
@@ -471,6 +756,7 @@
         <button class="btn start" onclick="startGame()">▶️ 开始</button>
         <button class="btn reset" onclick="resetGame()">🔄 重置</button>
         <button class="btn setting" onclick="openModal()">⚙️ 难度</button>
+        <button class="btn shape" onclick="openShapeModal()">🎨 图形</button>
     </div>
 
     <!-- 难度窗口 -->
@@ -484,6 +770,53 @@
         </div>
     </div>
 
+    <!-- 图形编辑器窗口 -->
+    <div class="modal" id="shapeModal">
+        <div class="modal-title">图形编辑器</div>
+        <div class="shape-editor">
+            <!-- 基础图形库 -->
+            <div class="shape-library">
+                <h3>基础图形</h3>
+                <div class="shape-items">
+                    <div class="shape-item draggable" data-shape="circle" data-color="#FF6B6B">
+                        <div class="shape-preview circle"></div>
+                        <span>圆形</span>
+                    </div>
+                    <div class="shape-item draggable" data-shape="square" data-color="#4ECDC4">
+                        <div class="shape-preview square"></div>
+                        <span>正方形</span>
+                    </div>
+                    <div class="shape-item draggable" data-shape="triangle" data-color="#FFD166">
+                        <div class="shape-preview triangle"></div>
+                        <span>三角形</span>
+                    </div>
+                    <div class="shape-item draggable" data-shape="star" data-color="#6A0572">
+                        <div class="shape-preview star"></div>
+                        <span>星形</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 拼接区域 -->
+            <div class="canvas-area">
+                <h3>拼接区域</h3>
+                <div class="canvas" id="canvas"></div>
+                <div class="canvas-actions">
+                    <button class="btn" onclick="clearCanvas()">清空</button>
+                    <button class="btn" onclick="saveCustomShape()">保存图形</button>
+                </div>
+            </div>
+            
+            <!-- 自定义图形列表 -->
+            <div class="custom-shapes">
+                <h3>自定义图形</h3>
+                <div class="custom-shape-list" id="customShapeList">
+                    <!-- 自定义图形将通过JS动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 结束弹窗 -->
     <div class="end-modal" id="endModal">
         <div class="end-title">游戏结束 🎉</div>
@@ -494,7 +827,13 @@
     </div>
 
     <script>
-        const shapes = ['target-1','target-2','target-3','target-4'];
+        // 基础图形
+        const baseShapes = ['target-1','target-2','target-3','target-4'];
+        // 自定义图形
+        let customShapes = [];
+        // 当前使用的图形列表
+        let shapes = [...baseShapes];
+        
         let scoreL = 0, scoreR = 0;
         let gameRunning = false;
         let spawnSpeed = 1800;
@@ -507,22 +846,135 @@
             return shapes[Math.floor(Math.random() * shapes.length)];
         }
 
+        // 创建图形元素（支持自定义组合图形）
+        function createShapeElement(shapeId, container) {
+            // 检查是否是自定义图形
+            const customShape = customShapes.find(s => s.id === shapeId);
+            
+            if (customShape) {
+                // 创建组合图形容器
+                const shapeContainer = document.createElement('div');
+                shapeContainer.className = 'shape custom-shape-container';
+                
+                // 添加各个元素
+                customShape.elements.forEach(elementInfo => {
+                    const element = document.createElement('div');
+                    element.style.position = 'absolute';
+                    element.style.left = elementInfo.x + 'px';
+                    element.style.top = elementInfo.y + 'px';
+                    element.style.width = '50px';
+                    element.style.height = '50px';
+                    
+                    // 设置图形样式
+                    switch (elementInfo.type) {
+                        case 'circle':
+                            element.style.background = elementInfo.color;
+                            element.style.borderRadius = '50%';
+                            break;
+                        case 'square':
+                            element.style.background = elementInfo.color;
+                            break;
+                        case 'triangle':
+                            element.style.background = 'transparent';
+                            element.style.width = '0';
+                            element.style.height = '0';
+                            element.style.borderLeft = '25px solid transparent';
+                            element.style.borderRight = '25px solid transparent';
+                            element.style.borderBottom = '43px solid ' + elementInfo.color;
+                            break;
+                        case 'star':
+                            element.style.background = elementInfo.color;
+                            element.style.clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
+                            break;
+                    }
+                    
+                    shapeContainer.appendChild(element);
+                });
+                
+                container.appendChild(shapeContainer);
+            } else {
+                // 基础图形
+                const shapeElement = document.createElement('div');
+                shapeElement.className = shapeId;
+                container.appendChild(shapeElement);
+            }
+        }
+
         // 左右独立目标（互不干扰）
         function initTargetLeft() {
             const target = document.getElementById('targetL');
-            target.className = 'target-area ' + randShape();
+            target.className = 'target-area';
+            target.innerHTML = '';
+            const shape = randShape();
+            createShapeElement(shape, target);
+            target.dataset.shape = shape;
         }
         function initTargetRight() {
             const target = document.getElementById('targetR');
-            target.className = 'target-area ' + randShape();
+            target.className = 'target-area';
+            target.innerHTML = '';
+            const shape = randShape();
+            createShapeElement(shape, target);
+            target.dataset.shape = shape;
         }
 
         // 核心修复：图形从顶部掉落 + 左右独立
         function createShape(container, isLeft) {
-            const el = document.createElement('div');
             const randomShape = randShape();
+            
+            let el;
+            
+            // 检查是否是自定义图形
+            const customShape = customShapes.find(s => s.id === randomShape);
+            
+            if (customShape) {
+                // 创建组合图形容器
+                el = document.createElement('div');
+                el.className = 'custom-shape-container';
+                el.dataset.shape = randomShape;
+                
+                // 添加各个元素
+                customShape.elements.forEach(elementInfo => {
+                    const element = document.createElement('div');
+                    element.style.position = 'absolute';
+                    element.style.left = elementInfo.x + 'px';
+                    element.style.top = elementInfo.y + 'px';
+                    element.style.width = '50px';
+                    element.style.height = '50px';
+                    
+                    // 设置图形样式
+                    switch (elementInfo.type) {
+                        case 'circle':
+                            element.style.background = elementInfo.color;
+                            element.style.borderRadius = '50%';
+                            break;
+                        case 'square':
+                            element.style.background = elementInfo.color;
+                            break;
+                        case 'triangle':
+                            element.style.background = 'transparent';
+                            element.style.width = '0';
+                            element.style.height = '0';
+                            element.style.borderLeft = '25px solid transparent';
+                            element.style.borderRight = '25px solid transparent';
+                            element.style.borderBottom = '43px solid ' + elementInfo.color;
+                            break;
+                        case 'star':
+                            element.style.background = elementInfo.color;
+                            element.style.clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
+                            break;
+                    }
+                    
+                    el.appendChild(element);
+                });
+            } else {
+                // 基础图形
+                el = document.createElement('div');
+                el.className = randomShape;
+                el.dataset.shape = randomShape;
+            }
+            
             // 先设置基本样式，不包含动画
-            el.className = randomShape;
             el.style.position = 'absolute';
             el.style.cursor = 'pointer';
             el.style.transition = 'transform 0.2s';
@@ -548,8 +1000,8 @@
             // 点击判断（独立加分）
             el.onclick = () => {
                 const currentTargetShape = isLeft 
-                    ? document.getElementById('targetL').classList[1]
-                    : document.getElementById('targetR').classList[1];
+                    ? document.getElementById('targetL').dataset.shape
+                    : document.getElementById('targetR').dataset.shape;
 
                 if (randomShape === currentTargetShape) {
                     if (isLeft) {
@@ -653,6 +1105,234 @@
             fallSpeed = fall;
             document.getElementById('modal').style.display = 'none';
             document.getElementById('mask').style.display = 'none';
+        }
+
+        // 自定义图形功能
+        let canvasElements = [];
+        let draggedElement = null;
+        let offsetX, offsetY;
+
+        function openShapeModal() {
+            document.getElementById('shapeModal').style.display = 'block';
+            document.getElementById('mask').style.display = 'block';
+            initDragAndDrop();
+            renderCustomShapes();
+        }
+
+        function closeShapeModal() {
+            document.getElementById('shapeModal').style.display = 'none';
+            document.getElementById('mask').style.display = 'none';
+        }
+
+        // 初始化拖放功能
+        function initDragAndDrop() {
+            // 为基础图形添加拖动功能
+            const draggableItems = document.querySelectorAll('.shape-item.draggable');
+            draggableItems.forEach(item => {
+                item.addEventListener('mousedown', startDrag);
+            });
+
+            // 为画布添加放置功能
+            const canvas = document.getElementById('canvas');
+            canvas.addEventListener('dragover', allowDrop);
+            canvas.addEventListener('drop', drop);
+            canvas.addEventListener('mousemove', drag);
+            canvas.addEventListener('mouseup', endDrag);
+        }
+
+        // 开始拖动
+        function startDrag(e) {
+            const shapeType = this.dataset.shape;
+            const color = this.dataset.color;
+            
+            // 创建拖动元素
+            draggedElement = document.createElement('div');
+            draggedElement.className = 'draggable-element';
+            draggedElement.style.width = '50px';
+            draggedElement.style.height = '50px';
+            
+            // 设置图形样式
+            switch (shapeType) {
+                case 'circle':
+                    draggedElement.style.background = color;
+                    draggedElement.style.borderRadius = '50%';
+                    break;
+                case 'square':
+                    draggedElement.style.background = color;
+                    break;
+                case 'triangle':
+                    draggedElement.style.background = 'transparent';
+                    draggedElement.style.width = '0';
+                    draggedElement.style.height = '0';
+                    draggedElement.style.borderLeft = '25px solid transparent';
+                    draggedElement.style.borderRight = '25px solid transparent';
+                    draggedElement.style.borderBottom = '43px solid ' + color;
+                    break;
+                case 'star':
+                    draggedElement.style.background = color;
+                    draggedElement.style.clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
+                    break;
+            }
+
+            // 计算偏移量
+            const rect = this.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+
+            // 添加到画布
+            const canvas = document.getElementById('canvas');
+            const canvasRect = canvas.getBoundingClientRect();
+            draggedElement.style.left = (e.clientX - canvasRect.left - offsetX) + 'px';
+            draggedElement.style.top = (e.clientY - canvasRect.top - offsetY) + 'px';
+            canvas.appendChild(draggedElement);
+
+            // 记录元素信息
+            canvasElements.push({
+                element: draggedElement,
+                type: shapeType,
+                color: color,
+                x: parseInt(draggedElement.style.left),
+                y: parseInt(draggedElement.style.top)
+            });
+        }
+
+        // 允许放置
+        function allowDrop(e) {
+            e.preventDefault();
+        }
+
+        // 放置元素
+        function drop(e) {
+            e.preventDefault();
+            if (draggedElement) {
+                const canvas = document.getElementById('canvas');
+                const canvasRect = canvas.getBoundingClientRect();
+                draggedElement.style.left = (e.clientX - canvasRect.left - offsetX) + 'px';
+                draggedElement.style.top = (e.clientY - canvasRect.top - offsetY) + 'px';
+                endDrag();
+            }
+        }
+
+        // 拖动中
+        function drag(e) {
+            if (draggedElement) {
+                const canvas = document.getElementById('canvas');
+                const canvasRect = canvas.getBoundingClientRect();
+                draggedElement.style.left = (e.clientX - canvasRect.left - offsetX) + 'px';
+                draggedElement.style.top = (e.clientY - canvasRect.top - offsetY) + 'px';
+            }
+        }
+
+        // 结束拖动
+        function endDrag() {
+            draggedElement = null;
+        }
+
+        // 清空画布
+        function clearCanvas() {
+            const canvas = document.getElementById('canvas');
+            canvas.innerHTML = '';
+            canvasElements = [];
+        }
+
+        // 保存自定义图形
+        function saveCustomShape() {
+            if (canvasElements.length === 0) {
+                alert('请先在画布上添加图形');
+                return;
+            }
+
+            const shapeName = prompt('请输入图形名称：');
+            if (!shapeName) return;
+
+            const shapeId = 'custom-' + Date.now();
+            customShapes.push({
+                id: shapeId,
+                name: shapeName,
+                elements: [...canvasElements]
+            });
+
+            // 更新图形列表
+            shapes = [...baseShapes, ...customShapes.map(s => s.id)];
+            // 重新渲染自定义图形列表
+            renderCustomShapes();
+            // 清空画布
+            clearCanvas();
+            
+            alert('图形保存成功！');
+        }
+
+        // 渲染自定义图形列表
+        function renderCustomShapes() {
+            const customShapeList = document.getElementById('customShapeList');
+            customShapeList.innerHTML = '';
+
+            customShapes.forEach(shape => {
+                const shapeItem = document.createElement('div');
+                shapeItem.className = 'custom-shape-item';
+                
+                // 图形预览
+                const preview = document.createElement('div');
+                preview.className = 'custom-shape-preview';
+                
+                // 重建预览图形
+                shape.elements.forEach(elementInfo => {
+                    const previewElement = document.createElement('div');
+                    previewElement.style.position = 'absolute';
+                    previewElement.style.left = (elementInfo.x * 0.8) + 'px';
+                    previewElement.style.top = (elementInfo.y * 0.8) + 'px';
+                    previewElement.style.width = '40px';
+                    previewElement.style.height = '40px';
+                    
+                    // 设置图形样式
+                    switch (elementInfo.type) {
+                        case 'circle':
+                            previewElement.style.background = elementInfo.color;
+                            previewElement.style.borderRadius = '50%';
+                            break;
+                        case 'square':
+                            previewElement.style.background = elementInfo.color;
+                            break;
+                        case 'triangle':
+                            previewElement.style.background = 'transparent';
+                            previewElement.style.width = '0';
+                            previewElement.style.height = '0';
+                            previewElement.style.borderLeft = '20px solid transparent';
+                            previewElement.style.borderRight = '20px solid transparent';
+                            previewElement.style.borderBottom = '35px solid ' + elementInfo.color;
+                            break;
+                        case 'star':
+                            previewElement.style.background = elementInfo.color;
+                            previewElement.style.clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
+                            break;
+                    }
+                    
+                    preview.appendChild(previewElement);
+                });
+                
+                // 图形名称
+                const name = document.createElement('div');
+                name.className = 'custom-shape-name';
+                name.textContent = shape.name;
+                
+                // 移除按钮
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'remove-custom-shape';
+                removeBtn.textContent = '移除';
+                removeBtn.onclick = () => removeCustomShape(shape.id);
+                
+                shapeItem.appendChild(preview);
+                shapeItem.appendChild(name);
+                shapeItem.appendChild(removeBtn);
+                customShapeList.appendChild(shapeItem);
+            });
+        }
+
+        // 移除自定义图形
+        function removeCustomShape(shapeId) {
+            customShapes = customShapes.filter(s => s.id !== shapeId);
+            shapes = [...baseShapes, ...customShapes.map(s => s.id)];
+            renderCustomShapes();
         }
 
         // 初始化

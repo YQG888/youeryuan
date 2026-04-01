@@ -146,33 +146,32 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             .game-title {
-                font-size: 24px;
-                padding: 10px;
+                font-size: 20px;
+                padding: 8px;
             }
             
             .timer-box {
-                width: 80px;
-                height: 80px;
-                font-size: 32px;
-                top: 80px;
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+                top: 70px;
             }
             
             .players-wrap {
-                flex-direction: column;
-                height: auto;
+                flex-direction: row;
+                height: calc(100vh - 180px);
                 margin-top: 30px;
-                padding-bottom: 20px;
             }
             
             .player-side {
-                width: 100%;
-                height: auto;
-                margin-bottom: 30px;
-                padding-top: 20px;
+                width: 50%;
+                height: 100%;
+                padding-top: 15px;
             }
             
             .divider {
-                display: none;
+                top: 150px;
+                height: calc(100% - 150px - 10px);
             }
         }
 
@@ -226,31 +225,31 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             .player-label {
-                font-size: 20px;
-                margin-bottom: 10px;
+                font-size: 16px;
+                margin-bottom: 8px;
             }
             
             .score-box {
-                width: 100px;
-                height: 100px;
-                font-size: 48px;
-                margin-bottom: 20px;
+                width: 80px;
+                height: 80px;
+                font-size: 36px;
+                margin-bottom: 15px;
             }
             
             .target-area {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 20px;
+                width: 100px;
+                height: 100px;
+                margin-bottom: 15px;
             }
             
             .fall-area {
-                height: 50%;
-                min-height: 200px;
+                height: 60%;
+                min-height: 150px;
             }
             
             .shape-piece {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -580,6 +579,16 @@
             .custom-shape-preview {
                 width: 70px;
                 height: 70px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 20px;
+            }
+            
+            .control-bar {
+                gap: 15px;
+                padding: 10px 0;
             }
         }
 

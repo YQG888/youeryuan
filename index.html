@@ -20,10 +20,64 @@
             position: relative;
         }
 
+        /* 音乐控制按钮 */
+        .music-control {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* 响应式音乐控制按钮 */
+        @media (max-width: 768px) {
+            .music-control {
+                top: 5px;
+                right: 5px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
         /* 响应式设计 */
         @media (max-width: 768px) {
             body {
                 overflow: auto;
+            }
+        }
+
+        /* 音乐控制按钮 */
+        .music-control {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* 响应式音乐控制按钮 */
+        @media (max-width: 768px) {
+            .music-control {
+                top: 5px;
+                right: 5px;
+                width: 40px;
+                height: 40px;
             }
         }
 
@@ -914,6 +968,15 @@
 </head>
 
 <body>
+    <!-- 背景音乐 -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://assets.mixkit.co/active_storage/sfx/2028/2028-preview.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <div class="music-control" id="musicControl" onclick="toggleMusic()">🎵</div>
+    
     <div class="divider"></div>
     <div class="game-title">🎨 图形拼拼乐 · 左右PK 🎨</div>
     <div class="timer-box" id="timer">60</div>
@@ -1685,6 +1748,19 @@
             customShapes = customShapes.filter(s => s.id !== shapeId);
             shapes = [...baseShapes, ...customShapes.map(s => s.id)];
             renderCustomShapes();
+        }
+
+        // 音乐控制
+        function toggleMusic() {
+            const music = document.getElementById('backgroundMusic');
+            const control = document.getElementById('musicControl');
+            if (music.paused) {
+                music.play();
+                control.textContent = '🔇';
+            } else {
+                music.pause();
+                control.textContent = '🎵';
+            }
         }
 
         // 初始化

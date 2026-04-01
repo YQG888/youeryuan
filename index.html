@@ -830,6 +830,18 @@
         .target-area .star {
             width: 100%;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .target-area .circle {
+            border-radius: 50%;
+            background-color: #4ecdc4;
+        }
+
+        .target-area .square {
+            background-color: #45b7d1;
         }
 
         .target-area .triangle {
@@ -843,14 +855,22 @@
 
         .target-area .star {
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background-color: #ffe66d;
         }
 
         /* 响应式调整目标区域内图形大小 */
         @media (max-width: 768px) {
+            .target-area .circle,
+            .target-area .square,
+            .target-area .star {
+                transform: scale(0.8);
+            }
+            
             .target-area .triangle {
                 border-left: 35px solid transparent;
                 border-right: 35px solid transparent;
                 border-bottom: 60px solid #ff6b6b;
+                transform: scale(0.8);
             }
         }
 
@@ -1055,7 +1075,7 @@
 <body>
     <!-- 背景音乐 -->
     <audio id="backgroundMusic" loop>
-        <source src="https://assets.mixkit.co/active_storage/sfx/2734/2734-preview.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2192/2192-preview.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素。
      </audio>
     

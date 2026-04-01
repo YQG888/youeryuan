@@ -279,8 +279,16 @@
 
         /* 核心修复：从区域最顶端外部掉落！ */
         @keyframes fallAnimation {
-            0% { top: -180px; }
+            0% { top: -200px; }
             100% { top: 100%; }
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            @keyframes fallAnimation {
+                0% { top: -150px; }
+                100% { top: 100%; }
+            }
         }
 
         .control-bar {
@@ -1047,7 +1055,7 @@
 <body>
     <!-- 背景音乐 -->
     <audio id="backgroundMusic" loop>
-        <source src="https://assets.mixkit.co/active_storage/sfx/2192/2192-preview.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2734/2734-preview.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素。
      </audio>
     
@@ -1344,17 +1352,22 @@
                 el.style.width = `${baseSize}px`;
                 el.style.height = `${baseSize}px`;
             }
-            el.style.transform = 'scale(0.55)';
+            
+            // 响应式调整缩放比例
+            const isMobile = window.innerWidth <= 768;
+            el.style.transform = isMobile ? 'scale(0.5)' : 'scale(0.55)';
             el.style.boxShadow = '0 4px 10px rgba(0,0,0,0.15)';
             
-            // 计算图形大小，考虑响应式设计
-            const isMobile = window.innerWidth <= 768;
+            // 计算图形大小和位置，考虑响应式设计
             const shapeSize = isMobile ? 90 : (window.innerHeight < 700 ? 120 : 150);
-            const topOffset = isMobile ? '-120px' : '-180px';
+            
+            // 确保图形在容器内显示，考虑缩放后的实际宽度
+            const scaledShapeSize = shapeSize * (isMobile ? 0.5 : 0.55);
+            const maxLeft = container.offsetWidth - scaledShapeSize;
             
             // 从区域顶部外部开始
-            el.style.top = topOffset;
-            el.style.left = Math.random() * (container.offsetWidth - shapeSize) + 'px';
+            el.style.top = isMobile ? '-150px' : '-200px';
+            el.style.left = Math.random() * Math.max(0, maxLeft) + 'px';
             
             // 添加到容器后再设置动画
             container.appendChild(el);
